@@ -14,7 +14,7 @@ jobs:
   repo-sync:
     env:
       PAT: ${{ secrets.PAT }} #此处PAT需要申请，教程详见：https://www.jianshu.com/p/bb82b3ad1d11
-      dst_key: ${{ secrets.GITEE_PRIVATE_KEY }} # 我自己同步到gitee使用，其他人可忽略
+      dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -36,6 +36,6 @@ jobs:
         with:
           src: github/lxk0301
           dst: gitee/lxk0301
-          static_list: "jd_scripts"
+          static_list: "scripts"
           dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
           dst_token: ${{ secrets.GITEE_TOKEN }}
