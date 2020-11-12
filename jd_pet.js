@@ -38,7 +38,7 @@ let message = '', subTitle = '', option = {};
 let jdNotify = false;//是否关闭通知，false打开通知推送，true关闭通知推送
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 let goodsUrl = '', taskInfoKey = [];
-let randomCount = 20;
+let randomCount = 0; //设置从别接口获取互助码个数
 !(async () => {
   await requireConfig();
   if (!cookiesArr[0]) {
