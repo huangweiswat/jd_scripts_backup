@@ -37,7 +37,7 @@ let message = '', subTitle = '', option = {}, isFruitFinished = false;
 const retainWater = 100;//保留水滴大于多少g,默认100g;
 let jdNotify = false;//是否关闭通知，false打开通知推送，true关闭通知推送
 let jdFruitBeanCard = false;//农场使用水滴换豆卡(如果出现限时活动时100g水换20豆,此时比浇水划算,推荐换豆),true表示换豆(不浇水),false表示不换豆(继续浇水),脚本默认是浇水
-let randomCount = 20;
+let randomCount = 0; //设置从别接口获取互助码个数
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const urlSchema = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://h5.m.jd.com/babelDiy/Zeus/3KSjXqQabiTuD1cJ28QskrpWoBKT/index.html%22%20%7D`;
 !(async () => {
@@ -1209,6 +1209,7 @@ function timeFormat(time) {
   }
   return date.getFullYear() + '-' + ((date.getMonth() + 1) >= 10 ? (date.getMonth() + 1) : '0' + (date.getMonth() + 1)) + '-' + (date.getDate() >= 10 ? date.getDate() : '0' + date.getDate());
 }
+
 function readShareCode() {
   return new Promise(resolve => {
     $.get({url: `http://api.turinglabs.net/api/v1/jd/farm/read/${randomCount}/`}, (err, resp, data) => {
@@ -1230,6 +1231,7 @@ function readShareCode() {
     })
   })
 }
+
 function shareCodesFormat() {
   return new Promise(async resolve => {
     // console.log(`第${$.index}个京东账号的助力码:::${jdFruitShareArr[$.index - 1]}`)
