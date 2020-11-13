@@ -39,9 +39,9 @@ const $ = new Env('来客有礼宠汪汪');
 const JD_BASE_API = `https://draw.jdfcloud.com//pet`;
 //此处填入你需要助力好友的京东用户名
 //给下面好友邀请助力的
-let invite_pins = ["jd_6cd93e613b0e5,被折叠的记忆33,jd_704a2e5e28a66,jd_45a6b5953b15b,zooooo58"];
+let invite_pins = ["jd_735680cedaa5e,鲨鱼棋,jd_717cd34f51296,jd_5a1329af66692"];
 //给下面好友赛跑助力
-let run_pins = ["jd_6cd93e613b0e5,被折叠的记忆33,jd_704a2e5e28a66,jd_45a6b5953b15b,zooooo58"];
+let run_pins = ["jd_735680cedaa5e,鲨鱼棋,jd_717cd34f51296,jd_5a1329af66692"];
 // $.LKYLToken = '76fe7794c475c18711e3b47185f114b5' || $.getdata('jdJoyRunToken');
 $.LKYLToken = $.getdata('jdJoyRunToken');
 //Node.js用户请在jdCookie.js处填写京东ck;
