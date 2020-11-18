@@ -1,6 +1,6 @@
 /*
 东东水果:脚本更新地址 https://raw.githubusercontent.com/lxk0301/jd_scripts/master/jd_fruit.js
-更新时间：2020-11-10
+更新时间：2020-11-17
 东东农场活动链接：https://h5.m.jd.com/babelDiy/Zeus/3KSjXqQabiTuD1cJ28QskrpWoBKT/index.html
 已支持IOS双京东账号,Node.js支持N个京东账号
 脚本兼容: QuantumultX, Surge, Loon, JSBox, Node.js
@@ -29,9 +29,13 @@ let cookiesArr = [], cookie = '', jdFruitShareArr = [], isBox = false, notify, n
 //下面给出两个账号的填写示例（iOS只支持2个京东账号）
 let shareCodes = [ // 这个列表填入你要助力的好友的shareCode
    //账号一的好友shareCode,不同好友的shareCode中间用@符号隔开
-  '0a74407df5df4fa99672a037eec61f7e@dbb21614667246fabcfd9685b6f448f3@6fbd26cc27ac44d6a7fed34092453f77@61ff5c624949454aa88561f2cd721bf6',
+  '592ab793f1ed423eba38a71c8a70e27b@8da42306e5034e54869fe082610e5c96@c4669483d15b4ab284d2c5154b727db0@353bc67330fe4996bc735a6e5dfdf413',
   //账号二的好友shareCode,不同好友的shareCode中间用@符号隔开
-  'b1638a774d054a05a30a17d3b4d364b8@f92cb56c6a1349f5a35f0372aa041ea0@9c52670d52ad4e1a812f894563c746ea@8175509d82504e96828afc8b1bbb9cb3',
+  '0af863521d704b2e9360e0480b119e19@8da42306e5034e54869fe082610e5c96@c4669483d15b4ab284d2c5154b727db0@353bc67330fe4996bc735a6e5dfdf413',
+  //账号三的好友shareCode,不同好友的shareCode中间用@符号隔开
+  '0af863521d704b2e9360e0480b119e19@592ab793f1ed423eba38a71c8a70e27b@c4669483d15b4ab284d2c5154b727db0@353bc67330fe4996bc735a6e5dfdf413',
+  //账号四的好友shareCode,不同好友的shareCode中间用@符号隔开
+  '0af863521d704b2e9360e0480b119e19@592ab793f1ed423eba38a71c8a70e27b@c4669483d15b4ab284d2c5154b727db0@353bc67330fe4996bc735a6e5dfdf413',	
 ]
 let message = '', subTitle = '', option = {}, isFruitFinished = false;
 const retainWater = 100;//保留水滴大于多少g,默认100g;
@@ -335,11 +339,20 @@ async function doTenWaterAgain() {
   await myCardInfoForFarm();
   const { fastCard, doubleCard, beanCard, signCard  } = $.myCardInfoRes;
   console.log(`背包已有道具:\n快速浇水卡:${fastCard === -1 ? '未解锁': fastCard + '张'}\n水滴翻倍卡:${doubleCard === -1 ? '未解锁': doubleCard + '张'}\n水滴换京豆卡:${beanCard === -1 ? '未解锁' : beanCard + '张'}\n加签卡:${signCard === -1 ? '未解锁' : signCard + '张'}\n`)
-  if (totalEnergy >= 100 && $.myCardInfoRes.doubleCard > 0) {
+  if (totalEnergy >= 100 && doubleCard > 0) {
     //使用翻倍水滴卡
-    for (let i = 0; i < new Array($.myCardInfoRes.doubleCard).fill('').length; i++) {
+    for (let i = 0; i < new Array(doubleCard).fill('').length; i++) {
       await userMyCardForFarm('doubleCard');
       console.log(`使用翻倍水滴卡结果:${JSON.stringify($.userMyCardRes)}`);
+    }
+    await initForFarm();
+    totalEnergy = $.farmInfo.farmUserPro.totalEnergy;
+  }
+  if (signCard > 0) {
+    //使用加签卡
+    for (let i = 0; i < new Array(signCard).fill('').length; i++) {
+      await userMyCardForFarm('signCard');
+      console.log(`使用加签卡结果:${JSON.stringify($.userMyCardRes)}`);
     }
     await initForFarm();
     totalEnergy = $.farmInfo.farmUserPro.totalEnergy;
@@ -362,17 +375,17 @@ async function doTenWaterAgain() {
       console.log(`您目前水滴:${totalEnergy}g,水滴换豆卡${$.myCardInfoRes.beanCard}张,暂不满足水滴换豆的条件,为您继续浇水`)
     }
   }
-  // if (Date.now() < new Date(activeEndTime).getTime()) {
-  //   if (totalEnergy >= 100 && $.myCardInfoRes.beanCard > 0) {
-  //     //使用水滴换豆卡
-  //     await userMyCardForFarm('beanCard');
-  //     console.log(`使用水滴换豆卡结果:${JSON.stringify($.userMyCardRes)}`);
-  //     if ($.userMyCardRes.code === '0') {
-  //       message += `【水滴换豆卡】获得${$.userMyCardRes.beanCount}个京豆\n`;
-  //     }
-  //   }
-  //   return
-  // }
+														  
+																
+								
+											 
+																					   
+											
+											  
+		  
+		
+			 
+	  
   // if (totalEnergy > 100 && $.myCardInfoRes.fastCard > 0) {
   //   //使用快速浇水卡
   //   await userMyCardForFarm('fastCard');
@@ -650,11 +663,11 @@ async function masterHelpShare() {
       console.log(`助力失败::${JSON.stringify($.helpResult)}`);
     }
   }
-																			  
-										  
-						   
-																								   
-										 
+					 
+			
+		 
+																						  
+		   
    
   if ($.isLoon() || $.isQuanX() || $.isSurge()) {
     let helpSuccessPeoplesKey = timeFormat() + $.farmInfo.farmUserPro.shareCode;
@@ -672,7 +685,7 @@ async function masterHelpShare() {
     }
     helpSuccessPeoples = $.getdata(helpSuccessPeoplesKey);
   }
-														
+			  
   if (helpSuccessPeoples && helpSuccessPeoples.length > 0) {
     message += `【您助力的好友👬】${helpSuccessPeoples.substr(0, helpSuccessPeoples.length - 1)}\n`;
   }
