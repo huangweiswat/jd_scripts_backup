@@ -56,7 +56,7 @@ if ($.isNode()) {
 }
 
 const JD_API_HOST = 'https://lkyl.dianpusoft.cn/api';
-const inviteCodes = ['1330186694770339842', '1330185661529935874'];
+const inviteCodes = ['', ''];//助力好友
 !(async () => {
   if (!cookiesArr[0]) {
     $.msg($.name, '【提示】请先获取京东账号一cookie\n直接使用NobyDa的京东签到获取', 'https://bean.m.jd.com/', {"open-url": "https://bean.m.jd.com/"});
