@@ -35,7 +35,7 @@ jobs:
       - name: npm install
         run: |
           npm install
-      - name: '运行 【京小超】'
+      - name: '运行 【东东超市】'
         run: |
           node jd_superMarket.js
         env:
