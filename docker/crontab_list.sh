@@ -1,6 +1,6 @@
-0 */1 * * * git -C /scripts/ pull >> /scripts/logs/pull.log 2>&1
-2 */1 * * * crontab /scripts/docker/${CRONTAB_LIST_FILE}
-3 */1 * * * npm install --prefix /scripts >> /scripts/logs/npm_install.log 2>&1
+50 */1 * * * git -C /scripts/ pull >> /scripts/logs/pull.log 2>&1
+52 */1 * * * crontab /scripts/docker/${CRONTAB_LIST_FILE}
+53 */1 * * * npm install --prefix /scripts >> /scripts/logs/npm_install.log 2>&1
 # 每3天的23:50分清理一次日志
 50 23 */3 * * rm -rf /scripts/logs/*.log
 
@@ -52,12 +52,14 @@
 # 天天提鹅
 18 * * * * node /scripts/jd_daily_egg.js >> /scripts/logs/jd_daily_egg.log 2>&1
 # 金融养猪
-12 13 * * * node /scripts/jd_pigPet.js >> /scripts/logs/jd_pigPet.log 2>&1
+12 * * * * node /scripts/jd_pigPet.js >> /scripts/logs/jd_pigPet.log 2>&1
 # 点点券
 20 0,20 * * * node /scripts/jd_necklace.js >> /scripts/logs/jd_necklace.log 2>&1
 # 京喜工厂
 20 * * * * node /scripts/jd_dreamFactory.js >> /scripts/logs/jd_dreamFactory.log 2>&1
 # 东东小窝
-16 6 * * * node /scripts/jd_small_home.js >> /scripts/logs/jd_small_home.log 2>&1 
+16 6 * * * node /scripts/jd_small_home.js >> /scripts/logs/jd_small_home.log 2>&1
 # 东东工厂
 36 * * * * node /scripts/jd_jdfactory.js >> /scripts/logs/jd_jdfactory.log 2>&1
+#十元街
+36 8 * * * node /scripts/jd_syj.js >> /scripts/logs/jd_syj.log 2>&1
