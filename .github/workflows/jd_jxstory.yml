@@ -43,7 +43,8 @@ jobs:
           JD_DEBUG: ${{ secrets.JD_DEBUG }}
           PUSH_KEY: ${{ secrets.PUSH_KEY }}
           BARK_PUSH: ${{ secrets.BARK_PUSH }}
-          DREAMFACTORY_NOTIFY_CONTROL: ${{ secrets.DREAMFACTORY_NOTIFY_CONTROL }}
+          JXSTORY_SHARECODES: ${{ JXSTORY_SHARECODES }}
+          JXSTORY_NOTIFY_CONTROL: ${{ secrets.JXSTORY_NOTIFY_CONTROL }}
           TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
           TG_USER_ID: ${{ secrets.TG_USER_ID }}
           JD_USER_AGENT: ${{ secrets.JD_USER_AGENT }}
