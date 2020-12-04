@@ -1,7 +1,7 @@
 /*
 京豆签到,自用,可N个京东账号,IOS软件用户请使用 https://raw.githubusercontent.com/NobyDa/Script/master/JD-DailyBonus/JD_DailyBonus.js
 Node.JS专用
-更新时间：2020-11-17
+更新时间：2020-11-27
 从 github @ruicky改写而来
 version v0.0.1
 create by ruicky
@@ -42,7 +42,7 @@ if ($.isNode()) {
       $.nickName = '';
       await TotalBean();
       console.log(`*****************开始京东账号${$.index} ${$.nickName || $.UserName}京豆签到*******************\n`);
-      console.log(`⚠️⚠️⚠️⚠️目前Bark APP推送通知消息失败的,请换用其他通知方式,Bark对推送内容长度有限制 ⚠️⚠️⚠️⚠️\n`)
+      console.log(`⚠️⚠️⚠️⚠️目前Bark APP推送通知消息对推送内容长度有限制，如使用此推送方式脚本会默认转换成简洁内容推送 ⚠️⚠️⚠️⚠️\n`)
       await changeFile(content);
       await  execSign();
     }
@@ -55,6 +55,8 @@ async function execSign() {
   try {
     if (notify.SCKEY || notify.BARK_PUSH || notify.DD_BOT_TOKEN || (notify.TG_BOT_TOKEN && notify.TG_USER_ID) || notify.IGOT_PUSH_KEY) {
       await exec(`${process.execPath} ${JD_DailyBonusPath} >> ${resultPath}`);
+      const notifyContent = await fs.readFileSync(resultPath, "utf8");
+      console.log(`👇👇👇👇👇👇👇👇👇👇👇LOG记录👇👇👇👇👇👇👇👇👇👇👇\n${notifyContent}\n👆👆👆👆👆👆👆👆👆LOG记录👆👆👆👆👆👆👆👆👆👆👆`);
     } else {
       // 如果没有提供通知推送，则打印日志
       console.log('没有提供通知推送，则打印脚本执行日志')
@@ -71,6 +73,7 @@ async function execSign() {
         const barkContentStart = notifyContent.indexOf('【签到概览】')
         const barkContentEnd = notifyContent.length;
         if (process.env.JD_BEAN_SIGN_STOP_NOTIFY === 'true') return
+        if (notify.BARK_PUSH) process.env.JD_BEAN_SIGN_NOTIFY_SIMPLE = 'true';
         if (process.env.JD_BEAN_SIGN_NOTIFY_SIMPLE === 'true') {
           if (barkContentStart > -1 && barkContentEnd > -1) {
             BarkContent = notifyContent.substring(barkContentStart, barkContentEnd);
