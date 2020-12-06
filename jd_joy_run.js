@@ -38,9 +38,9 @@ const isRequest = typeof $request != "undefined"
 const $ = new Env('宠汪汪赛跑');
 const JD_BASE_API = `https://draw.jdfcloud.com//pet`;
 //此处填入你需要助力好友的京东用户名
-//给下面好友邀请助力的
+//下面给出好友邀请助力的示例填写规则
 let invite_pins = ["jd_735680cedaa5e,鲨鱼棋,jd_717cd34f51296,jd_5a1329af66692,13750031424_p"];
-//给下面好友赛跑助力
+//下面给出好友赛跑助力的示例填写规则
 let run_pins = ["jd_735680cedaa5e,鲨鱼棋,jd_717cd34f51296,jd_5a1329af66692,13750031424_p"];
 // $.LKYLToken = '76fe7794c475c18711e3b47185f114b5' || $.getdata('jdJoyRunToken');
 // $.LKYLToken = $.getdata('jdJoyRunToken');
