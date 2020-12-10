@@ -31,10 +31,10 @@ const JD_API_HOST = 'https://m.jingxi.com';
 const notify = $.isNode() ? require('./sendNotify') : '';
 let jdNotify = true;//是否关闭通知，false打开通知推送，true关闭通知推送
 const randomCount = $.isNode() ? 20 : 5;
-const tuanActiveId = `gaVXW_NJ0KPEA2LyUhoXzA==`;
-const jxOpenUrl = `openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://wqsd.jd.com/pingou/dream_factory/index.html%22%20%7D`;
+const tuanActiveId = 'gaVXW_NJ0KPEA2LyUhoXzA==';
+const jxOpenUrl = 'openjd://virtual?params=%7B%20%22category%22:%20%22jump%22,%20%22des%22:%20%22m%22,%20%22url%22:%20%22https://wqsd.jd.com/pingou/dream_factory/index.html%22%20%7D';
 let cookiesArr = [], cookie = '', message = '';
-const inviteCodes = ['V5LkjP4WRyjeCKR9VRwcRX0bBuTz7MEK0-E99EJ7u0k=', 'PDPM257r_KuQhil2Y7koNw==', "gB99tYLjvPcEFloDgamoBw==", '-OvElMzqeyeGBWazWYjI1Q=='];
+const inviteCodes = [''];//const inviteCodes = ['V5LkjP4WRyjeCKR9VRwcRX0bBuTz7MEK0-E99EJ7u0k=', 'PDPM257r_KuQhil2Y7koNw==', "gB99tYLjvPcEFloDgamoBw==", '-OvElMzqeyeGBWazWYjI1Q=='];
 const jdCookieNode = $.isNode() ? require('./jdCookie.js') : '';
 if ($.isNode()) {
   Object.keys(jdCookieNode).forEach((item) => {
@@ -65,7 +65,7 @@ if ($.isNode()) {
       $.friendList = [];
       $.canHelpFlag = true;//能否助力朋友
       await TotalBean();
-      console.log(`\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n`);
+      console.log('\n******开始【京东账号${$.index}】${$.nickName || $.UserName}*********\n');
       if (!$.isLogin) {
         $.msg($.name, `【提示】cookie已失效`, `京东账号${$.index} ${$.nickName || $.UserName}\n请重新登录获取\nhttps://bean.m.jd.com/`, {"open-url": "https://bean.m.jd.com/"});
 
@@ -81,7 +81,7 @@ if ($.isNode()) {
   }
 })()
     .catch((e) => {
-      $.log('', `❌ ${$.name}, 失败! 原因: ${e}!`, '')
+      $.log('', '❌ ${$.name}, 失败! 原因: ${e}!', '')
     })
     .finally(() => {
       $.done();
