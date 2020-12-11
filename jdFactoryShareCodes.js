@@ -8,8 +8,10 @@
 // 同一个京东账号的好友互助码用@符号隔开,不同京东账号之间用&符号或者换行隔开,下面给一个示例
 // 如: 京东账号1的shareCode1@京东账号1的shareCode2&京东账号2的shareCode1@京东账号2的shareCode2
 let shareCodes = [
-  '',//账号一的好友shareCode,不同好友中间用@符号隔开
-  '',//账号二的好友shareCode，不同好友中间用@符号隔开
+  'P04z54XCjVWnYaS5m9cZ2f72HpClcoO4EzIZoY@P04z54XCjVWnYaS5m9cZ2f52i8elkggBtXHCYI@P04z54XCjVWnYaS5m9cZ2Wp3H9InDbehWaC7HQ@P04z54XCjVWnYaS5jQLD2X43X9LkbWcFMo',//账号一的好友shareCode,不同好友中间用@符号隔开
+  'P04z54XCjVWnYaS5uyKkLl5UarZLg@P04z54XCjVWnYaS5m9cZ2f52i8elkggBtXHCYI@P04z54XCjVWnYaS5m9cZ2Wp3H9InDbehWaC7HQ@P04z54XCjVWnYaS5jQLD2X43X9LkbWcFMo',//账号二的好友shareCode，不同好友中间用@符号隔开
+  'P04z54XCjVWnYaS5uyKkLl5UarZLg@P04z54XCjVWnYaS5m9cZ2f72HpClcoO4EzIZoY@P04z54XCjVWnYaS5m9cZ2Wp3H9InDbehWaC7HQ@P04z54XCjVWnYaS5jQLD2X43X9LkbWcFMo',//账号三的好友shareCode，不同好友中间用@符号隔开
+  'P04z54XCjVWnYaS5uyKkLl5UarZLg@P04z54XCjVWnYaS5m9cZ2f72HpClcoO4EzIZoY@P04z54XCjVWnYaS5m9cZ2f52i8elkggBtXHCYI@P04z54XCjVWnYaS5jQLD2X43X9LkbWcFMo'//账号四的好友shareCode，不同好友中间用@符号隔开
 ]
 // 判断github action里面是否有东东工厂互助码
 if (process.env.DDFACTORY_SHARECODES) {
