@@ -8,9 +8,12 @@
 // 同一个京东账号的好友互助码用@符号隔开,不同京东账号之间用&符号或者换行隔开,下面给一个示例
 // 如: 京东账号1的shareCode1@京东账号1的shareCode2&京东账号2的shareCode1@京东账号2的shareCode2
 let SuperMarketShareCodes = [
-  '-4msulYas0O2JsRhE-2TA5XZmBQ@eU9Yar_mb_9z92_WmXNG0w@eU9YaejjYv4g8T2EwnsVhQ',//账号一的好友shareCode,不同好友中间用@符号隔开
-  'aURoM7PtY_Q@eU9Ya-y2N_5z9DvXwyIV0A@eU9YaOnjYK4j-GvWmXIWhA',//账号二的好友shareCode，不同好友中间用@符号隔开
-]
+  'eU9Ya--3YPQmojuBmiIWgw@eU9Ya-21Nagl9TjQynEa0A@eU9Yab2zZf4voDjTzXUa1A',//账号一的好友shareCode,不同好友中间用@符号隔开
+  '-pmvtW0-sG-d@eU9Ya-21Nagl9TjQynEa0A@eU9Yab2zZf4voDjTzXUa1A',//账号二的好友shareCode，不同好友中间用@符号隔开
+  '-pmvtW0-sG-d@eU9Ya--3YPQmojuBmiIWgw@eU9Yab2zZf4voDjTzXUa1A',//账号三的好友shareCode，不同好友中间用@符号隔开
+  '-pmvtW0-sG-d@eU9Ya--3YPQmojuBmiIWgw@eU9Ya-21Nagl9TjQynEa0A',//账号四的好友shareCode，不同好友中间用@符号隔开
+  ]
+
 // 判断github action里面是否有京小超商圈互助码
 if (process.env.SUPERMARKET_SHARECODES) {
   if (process.env.SUPERMARKET_SHARECODES.indexOf('&') > -1) {
