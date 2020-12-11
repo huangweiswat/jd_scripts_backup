@@ -38,7 +38,7 @@ let message = '', subTitle = '', option = {};
 let jdNotify = false;//是否关闭通知，false打开通知推送，true关闭通知推送
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 let goodsUrl = '', taskInfoKey = [];
-let randomCount =0;//let randomCount = $.isNode() ? 20 : 5;
+let randomCount = 0;//let randomCount = $.isNode() ? 20 : 5;
 !(async () => {
   await requireConfig();
   if (!cookiesArr[0]) {
@@ -115,7 +115,7 @@ async function jdPet() {
       }
       return
     }
-    console.log(`\n【您的互助码shareCode】 ${$.petInfo.shareCode}\n`);
+    console.log(`\n【您的${$.name}互助码shareCode】 ${$.petInfo.shareCode}\n`);
     await taskInit();
     if ($.taskInit.resultCode === '9999' || !$.taskInit.result) {
       console.log('初始化任务异常, 请稍后再试');
@@ -454,8 +454,8 @@ function readShareCode() {
         resolve(data);
       }
     })
-        await $.wait(10000);
-        resolve()
+    await $.wait(10000);
+    resolve()
   })
 }
 function shareCodesFormat() {
