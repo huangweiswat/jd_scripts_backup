@@ -38,7 +38,9 @@ if ($.isNode()) {
   let cookiesData = $.getdata('CookiesJD') || "[]";
   cookiesData = jsonParse(cookiesData);
   cookiesArr = cookiesData.map(item => item.cookie);
-  cookiesArr.push(...[$.getdata('CookieJD'), $.getdata('CookieJD2')]);
+  cookiesArr.reverse();
+  cookiesArr.push(...[$.getdata('CookieJD2'), $.getdata('CookieJD')]);
+  cookiesArr.reverse();
 }
 const JD_API_HOST = 'https://api.m.jd.com/client.action';
 const inviteCodes = ['P04z54XCjVUm4aW5uyKkLl5UarZLg@P04z54XCjVUm4aW5m9cZ2f72HpClf0EYZWOd5A@P04z54XCjVUm4aW5m9cZ2f52i8els0o5cin1ks@P04z54XCjVUm4aW5m9cZ2Wp3H9InLZHf3HSgRo',
