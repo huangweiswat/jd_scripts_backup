@@ -119,5 +119,3 @@ services:
  `docker-compose restart` 重启容器；  
  `docker-compose down` 停止并删除容器； 
  ![image](https://user-images.githubusercontent.com/6993269/97781935-8fcec000-1bc9-11eb-9d1a-d219e7a1caa9.png)
-
- 
