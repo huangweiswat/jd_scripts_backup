@@ -1,6 +1,5 @@
-50 */1 * * * git -C /scripts/ pull |ts >> /scripts/logs/pull.log 2>&1
-52 */1 * * * crontab /scripts/docker/${CRONTAB_LIST_FILE}
-53 */1 * * * npm install --prefix /scripts |ts >> /scripts/logs/npm_install.log 2>&1
+#必须要的默认定时任务请勿删除
+52 */1 * * * sh /scripts/docker/default_task.sh |ts >> /scripts/logs/default_task.log 2>&1
 # 每3天的23:50分清理一次日志
 50 23 */3 * * rm -rf /scripts/logs/*.log
 
@@ -84,3 +83,5 @@
 33 2 * * * node /scripts/jd_car.js |ts >> /scripts/logs/jd_car.log 2>&1
 # 领京豆额外奖励(每日可获得3京豆)
 33 4 * * * node /scripts/jd_bean_home.js |ts >> /scripts/logs/jd_bean_home.log 2>&1
+# 京东直播(每日18豆)
+10-20/5 11 * * * node /scripts/jd_live.js |ts >> /scripts/logs/jd_live.log 2>&1
